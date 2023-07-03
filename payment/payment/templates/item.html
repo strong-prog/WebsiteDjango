@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>{{item.name}}</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+
+    <script>
+      var stripe = Stripe('pk_test_51LiKCJDZaCFpukFPRKdOPaPGcDUl4qmjFZhQJrfiA6pVBANIPNuxkM5836WVJLeGCLSJWrV0ZSzuWayHtCmSODtC00jRKeOQUT');
+      function buy(){
+        $.ajax({
+          url: "/buy/{{item.id}}",
+          data: {
+            "ddddd": "hhhhh"
+          },
+          dataType: "json", // Для использования JSON формата получаемых данных
+          method: "POST", // Что бы воспользоваться POST методом, меняем данную строку на POST
+          success: function(data){
+            session_id = data.session.session.id;
+<!--            stripe.redirectToCheckout({-->
+<!--              "sessionId":session_id-->
+<!--             });-->
+            alert("Покупка одного товара");
+            console.log("Покупка одного товара");
+            alert(session_id);
+          },
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <h1>{{item.name}}</h1>
+    <p>Описание: {{item.description}}</p>
+    <p>Цена: {{item.price}} р.</p>
+    <p>Скидка {{discount}} %</p>
+    <p>Налог {{tax}} %</p>
+    <p>К оплате {{price_discount_tax}} р.</p>
+    <button id="buy-button" onclick="buy();">Купить</button>
+
+  </body>
+</html>

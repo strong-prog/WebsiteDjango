@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+
+    <script>
+      var stripe = Stripe('pk_test_51LiKCJDZaCFpukFPRKdOPaPGcDUl4qmjFZhQJrfiA6pVBANIPNuxkM5836WVJLeGCLSJWrV0ZSzuWayHtCmSODtC00jRKeOQUT');
+      $(document).ready(function(){
+           stripe.redirectToCheckout({
+              "sessionId":"{{session}}"
+           });
+      });
+    </script>
+</head>
+<body>
+
+</body>
+</html>
