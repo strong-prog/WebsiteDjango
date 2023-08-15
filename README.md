@@ -15,18 +15,5 @@
    - Запуск приложения на удаленном сервере, доступном для тестирования
    - Автоматический deploy на сервер через ci/cd
 
-## Инструкция по быстрому запуску на Linux/Ubuntu
 
-```
-mkdir ~/testproject
-cd ~/testproject
-git clone https://gitlab.com/strong.tretyakov/test-project2
-cd test-project2/payment
-pip install -r requirements.txt
-python3 manage.py migrate
-python3 manage.py runserver
-```
-
-## Демо
-http://sportnote.ru/
 
